@@ -14,7 +14,13 @@
 # These unicode caracters tend to color in and do what I call 'emojifying'
 # ☢  , ♿, , ⚡ , ⚛
 
-export    PS1="\n[\D{%Y-%m-%d %a %H:%M}]\n[\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]]\n☯ "
+export PS1="\n[\D{%Y-%m-%d %a %H:%M}]\[\033[95m\] $(parse_git_branch)\[\033[m\]\n[\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]]\n▶ "
+
+# Display Git Repo Branch Function
+# https://mfitzp.io/article/add-git-branch-name-to-terminal-prompt-mac/
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'
+}
 
 
 # ------------------------------------------------------------------------------
@@ -31,8 +37,12 @@ alias ll='ls -FGlAhp'        	# ???
 
 
 # ------------------------------------------------------------------------------
-# Aliases
+# Look to .bash_aliases file
 # ------------------------------------------------------------------------------
+
+if [ -f ~/.bash_aliases ];then
+    source ~/.bash_aliases
+fi
 
 alias c='clear'			# make current line first line in the window
 
