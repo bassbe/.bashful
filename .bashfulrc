@@ -1,0 +1,45 @@
+# Bashrc edits
+
+
+# ------------------------------------------------------------------------------
+# Profile String 1
+# ------------------------------------------------------------------------------
+
+# Unicode ending prompt-symbol options instead of '$'
+# To find more unicode characters: http://panmental.de/symbols/info.htm
+
+# These do not 'emojify' in the terminal
+# ▶, ☺, ✍, », ♂, ☭, ✝, ™, ♲  , ➾, ➽, ☯
+
+# These unicode caracters tend to color in and do what I call 'emojifying'
+# ☢  , ♿, , ⚡ , ⚛
+
+export    PS1="\n[\D{%Y-%m-%d %a %H:%M}]\n[\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]]\n☯ "
+
+
+# ------------------------------------------------------------------------------
+# Colors & ls in the Termianl (TODO: find out how these work)
+# ------------------------------------------------------------------------------
+
+# Colors
+export CLICOLOR=1		# ??
+export LSCOLORS=S=ExFxBxDxCxegedabagacad # ??
+
+# Listing Files
+alias ls='ls    -GFh'		# ???
+alias ll='ls -FGlAhp'        	# ???
+
+
+# ------------------------------------------------------------------------------
+# Aliases
+# ------------------------------------------------------------------------------
+
+alias c='clear'			# make current line first line in the window
+
+
+# ------------------------------------------------------------------------------
+# Calendar
+# ------------------------------------------------------------------------------
+alias calt='cal | grep -A4 -B5  --color "\s$(date +%d)\s"' #%date highlighted red
+#day-row (fix) format and the current date highlighted
+alias ncalt='ncal | grep -A4 -B5  --color "\s$(date +%d)\s"'
